@@ -1,0 +1,253 @@
+:root {
+  --color-primary: #2c3e50;
+  --color-underweight: #3498db;
+  --color-normal: #2ecc71;
+  --color-overweight: #f39c12;
+  --color-obese: #e74c3c;
+  --color-background: #f5f6fa;
+  --ratio: 1.112;
+  --fallback: "SolaimanLipi", "Siyam Rupali", "Roboto", "Arial", "Helvetica", "Monospace";
+  --font-1: var(--fallback);
+  --font-2: var(--fallback);
+  --font-3: var(--fallback);
+}
+
+html {
+  font-size: 112.5%;
+}
+
+@font-face {
+  font-family: "Shurjo";
+  font-display: swap;
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://assets.prothomalo.com/prothomalo/assets/ShurjoWeb_400_v2-6a682f6f610beeda14f0.woff2) format('woff2'),
+      url(https://assets.prothomalo.com/prothomalo/assets/ShurjoWeb_400_v2-f516035cb806da4a249e.woff) format("woff"),
+      url(https://assets.prothomalo.com/prothomalo/assets/ShurjoWeb_400_v2-46e441a492e5db01a626.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "Shurjo";
+  font-display: swap;
+  font-weight: 700;
+  font-style: normal;
+  src: url(https://assets.prothomalo.com/prothomalo/assets/ShurjoWeb_700_v2-ef9e058ccc3a98d85030.woff2) format("woff2"),
+      url(https://assets.prothomalo.com/prothomalo/assets/ShurjoWeb_700_v2-72cba63e779d86520525.woff) format('woff'),
+      url(https://assets.prothomalo.com/prothomalo/assets/ShurjoWeb_700_v2-7084d97ccd992205d87b.ttf) format('truetype'),
+      url(https://assets.prothomalo.com/prothomalo/assets/ShurjoWeb_700_v2-6f30c4f7cce4d463f8e4.eot) format("embedded-opentype");
+}
+
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Roboto'), local('Roboto-Regular'), url(https://fonts.gstatic.com/s/roboto/v20/KFOmCnqEu92Fr1Mu4mxM.woff) format('woff');
+}
+
+.fonts-loaded {
+  --font-1: "Shurjo", var(--fallback);
+  --font-2: "Shurjo", var(--fallback);
+  --font-3: "Roboto", var(--fallback);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-3);
+  line-height: 1.6;
+  background-color: var(--color-background);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Apply Bangla font when Bengali language is selected */
+[lang="bn"] * {
+  font-family: "Shurjo", var(--fallback) !important;
+  font-weight: 700 !important;
+}
+
+.container {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  width: 90%;
+  max-width: 600px;
+  position: relative;
+}
+
+.language-switch {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+
+#language-select {
+  padding: 0.3rem;
+  border: 1px solid var(--color-primary);
+  border-radius: 5px;
+  background-color: white;
+  color: var(--color-primary);
+  cursor: pointer;
+  font-size: 0.9rem;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+#language-select:hover {
+  border-color: var(--color-primary);
+  background-color: var(--color-primary);
+  color: white;
+}
+
+#language-select option {
+  background-color: white;
+  color: var(--color-primary);
+}
+
+h1 {
+  color: var(--color-primary);
+  text-align: center;
+  margin-bottom: 1.5rem;
+  margin-top: 2.5rem;
+}
+
+.unit-toggle {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.input-group {
+  margin-bottom: 2rem;
+}
+
+.input-field {
+  margin-bottom: 1rem;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--color-primary);
+}
+
+input[type="number"] {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.height-imperial {
+  display: flex;
+  gap: 1rem;
+}
+
+.height-imperial input {
+  width: 50%;
+}
+
+.buttons {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+button {
+  flex: 1;
+  padding: 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s;
+}
+
+#calculate {
+  background-color: var(--color-primary);
+  color: white;
+}
+
+#calculate:hover {
+  background-color: #34495e;
+}
+
+#reset {
+  background-color: #95a5a6;
+  color: white;
+}
+
+#reset:hover {
+  background-color: #7f8c8d;
+}
+
+#result {
+  text-align: center;
+  padding: 1.5rem;
+  border-radius: 5px;
+  margin-top: 2rem;
+}
+
+#bmi-value {
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 1rem 0;
+}
+
+#bmi-category {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+#health-tip {
+  font-style: italic;
+  color: #666;
+}
+
+.hidden {
+  display: none;
+}
+
+/* BMI Category Colors */
+.underweight {
+  color: var(--color-underweight);
+}
+
+.normal {
+  color: var(--color-normal);
+}
+
+.overweight {
+  color: var(--color-overweight);
+}
+
+.obese {
+  color: var(--color-obese);
+}
+
+.footer {
+  text-align: center;
+  margin-top: 2rem;
+  color: var(--color-primary);
+  font-size: 0.9rem;
+}
+
+.footer a {
+  color: #e74c3c;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer a:hover {
+  color: #c0392b;
+}

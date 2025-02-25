@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BMI Calculator</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="language-switch">
+        <select id="language-select">
+          <option value="en">English</option>
+          <option value="bn">বাংলা</option>
+        </select>
+      </div>
+      <h1>BMI Calculator</h1>
+      <div class="unit-toggle">
+        <label>
+          <input type="radio" name="unit" value="metric" checked> Metric (kg/cm)
+        </label>
+        <label>
+          <input type="radio" name="unit" value="imperial"> Imperial (lbs/in)
+        </label>
+      </div>
+
+      <div class="input-group">
+        <div class="metric-inputs">
+          <div class="input-field">
+            <label for="weight-metric">Weight (kg):</label>
+            <input type="number" id="weight-metric" placeholder="Enter weight" step="0.1">
+          </div>
+          <div class="input-field">
+            <label for="height-metric">Height (cm):</label>
+            <input type="number" id="height-metric" placeholder="Enter height">
+          </div>
+        </div>
+
+        <div class="imperial-inputs hidden">
+          <div class="input-field">
+            <label for="weight-imperial">Weight (lbs):</label>
+            <input type="number" id="weight-imperial" placeholder="Enter weight" step="0.1">
+          </div>
+          <div class="input-field">
+            <label for="height-imperial-ft">Height:</label>
+            <div class="height-imperial">
+              <input type="number" id="height-imperial-ft" placeholder="Feet">
+              <input type="number" id="height-imperial-in" placeholder="Inches">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="buttons">
+        <button id="calculate">Calculate BMI</button>
+        <button id="reset">Reset</button>
+      </div>
+
+      <div id="result" class="hidden">
+        <h2>Your BMI Result</h2>
+        <div id="bmi-value"></div>
+        <div id="bmi-category"></div>
+        <div id="health-tip"></div>
+      </div>
+
+      <div class="footer">
+        Made with ❤️ by <a href="https://github.com/sh-bd/" rel="noopener noreferrer" target="_blank">Shamim</a>
+      </div>
+    </div>
+    <script type="module" src="main.js"></script>
+  </body>
+</html>
